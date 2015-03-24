@@ -1,10 +1,8 @@
+/* Top */
+
 h1 {
     font-size: 150%;
     color: white;
-}
-
-#title {
-    float: left;
 }
 
 #main {
@@ -31,6 +29,10 @@ h1 {
 #listsbar ul {
     list-style-type: none;
     padding: 0;
+}
+
+#title {
+    float: left;
 }
 
 #lists li {
