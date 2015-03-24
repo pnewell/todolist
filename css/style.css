@@ -60,3 +60,7 @@ h1 {
     list-style-type: none;
     padding: 0;
 }
+
+#itemsbar input {
+    margin: 1em 0;
+}
