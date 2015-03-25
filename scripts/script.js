@@ -56,7 +56,7 @@ $(document).ready(function() {
             }
             else {    
                 $('#itemsbar').append('<div class="items" id="c' + i + 'div"><input type="checkbox" id="c' + i + '" name="c' + i + '" /> \
-            <label for="c' + i + '"><span></span>' + items[i] + '</label></div>');
+                <label for="c' + i + '"><span></span>' + items[i] + '</label></div>');
             }
         }
         $('#itemsbar').append('<p>Click to Add</p>');
@@ -72,10 +72,11 @@ $(document).ready(function() {
     $(document).on('keyup','.addnew', function (e) {
         if (e.which == 13) {
             var value = $('.addnew').val();
-            $('#itemsbar').append('<div class=\"items\" id=\"c1div\"><input type=\"checkbox\" id=\"c1\" name=\"c1\" /> \
-            <label for=\"c1\"><span></span>' + value + '</label></div>');
             var items = JSON.parse(localStorage[itemsid]);
             items.push(value);
+            var newitemid = items.length - 1;
+            $('#itemsbar').append('<div class="items" id="c' + newitemid + 'div"><input type="checkbox" id="c' + newitemid + '" name="c' + newitemid + '" /> \
+            <label for="c' + newitemid + '"><span></span>' + value + '</label></div>');
             localStorage[itemsid] = JSON.stringify(items);
             $(this).remove();
             e.preventDefault();
@@ -84,7 +85,7 @@ $(document).ready(function() {
     });
     
    // Add new list textbox
-   $(document).on('click','#addlist',function() {
+    $(document).on('click','#addlist',function() {
         $('#listsbar').append('<input class="addnewlist" type="text"></input>');
     });
 
@@ -99,7 +100,7 @@ $(document).ready(function() {
             lists[newname] = value;
             localStorage['lists'] = JSON.stringify(lists);
             var newitemsname = 'i' + listname;
-            var newitemsarray = new Array();
+            var newitemsarray = [];
             localStorage[newitemsname] = JSON.stringify(newitemsarray);
             $(this).remove();
             e.preventDefault();
